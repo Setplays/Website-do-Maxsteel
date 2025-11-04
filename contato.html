@@ -85,9 +85,9 @@
     
     <script>
         $(document).ready(function() {
-            // Monitora o envio (submit) do formulário
+
             $('#contact-form').on('submit', function(event) {
-                // 1. Previne o recarregamento da página
+
                 event.preventDefault();
 
                 var form = $(this);
@@ -96,22 +96,22 @@
                 var mensagem = $('#mensagem').val();
                 var formMessages = $('#form-messages');
 
-                // 2. Validação Simples com jQuery
+
                 if (nome === '' || email === '' || mensagem === '') {
-                    // Se estiver vazio, mostra erro
+
                     formMessages.html('<p class="msg-error">Por favor, preencha todos os campos obrigatórios.</p>');
-                    return; // Para a execução
+
                 }
 
-                // 3. Simulação de "Enviando..."
+
                 formMessages.html('<p class="msg-sending">Enviando sua mensagem...</p>');
 
-                // 4. Simulação de Sucesso (após 1.5 segundos)
+
                 setTimeout(function() {
                     // Limpa o formulário
                     form.trigger('reset'); 
                     
-                    // Mostra mensagem de sucesso
+
                     var sucessoHtml = `
                         <p class="msg-success">
                             <strong>Obrigado, ${nome}!</strong><br>

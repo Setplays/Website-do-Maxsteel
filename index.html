@@ -34,7 +34,7 @@
             
             <div id="slider-container">
                 <div class="slider-image">
-                    <img src="img/slider/painel-1999.png" alt="Max Steel de 1999">
+                    <img src="img/slider/painel-1999.jpg" alt="Max Steel de 1999">
                 </div>
                 <div class="slider-image">
                     <img src="img/slider/painel-reboot.png" alt="Max Steel em Ação Reboot">
@@ -64,23 +64,23 @@
             var $slides = $('.slider-image');
             var currentSlide = 0;
 
-            // Mostra o primeiro slide
+
             $slides.eq(currentSlide).fadeIn(1000);
 
-            // Função para trocar o slide
+
             function nextSlide() {
-                // Esconde o slide atual
+
                 $slides.eq(currentSlide).fadeOut(1000);
                 
-                // Calcula o próximo slide (dá a volta no final)
+
                 currentSlide = (currentSlide + 1) % $slides.length;
                 
-                // Mostra o próximo slide
+
                 $slides.eq(currentSlide).fadeIn(1000);
             }
 
-            // Define o intervalo: trocar de slide a cada 5 segundos
-            setInterval(nextSlide, 5000); // 5000 milissegundos = 5 segundos
+
+            setInterval(nextSlide, 5000);
         });
     </script>
 

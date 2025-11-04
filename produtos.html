@@ -49,18 +49,18 @@
 <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     
     <script>
-        // Espera o documento estar pronto
+
         $(document).ready(function() {
             
-            // Pede ao jQuery para buscar nosso "banco de dados"
+
             $.getJSON('produtos.json', function(data) {
-                // Encontra a galeria no HTML
+
                 var galeria = $('#galeria-produtos');
 
-                // Para cada produto encontrado no JSON...
+
                 $.each(data, function(index, produto) {
                     
-                    // 1. Crie o HTML para o card do produto
+
                     var cardHtml = `
                         <div class="card-produto">
                             <img src="${produto.imagemUrl}" alt="${produto.nome}">
@@ -69,12 +69,12 @@
                         </div>
                     `;
 
-                    // 2. Adicione o card na galeria
+
                     galeria.append(cardHtml);
                 });
             })
             .fail(function() {
-                // Se der erro (ex: não achar o produtos.json)
+
                 $('#galeria-produtos').html('<p>Erro ao carregar os produtos. Tente novamente mais tarde.</p>');
             });
         });
