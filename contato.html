@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Max Steel - Contato</title> 
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;700&family=Orbitron:wght@700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1>
+                <img src="max-steel-seeklogo.png" alt="Logo Max Steel" class="logo"> MAX STEEL
+            </h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="sobre.html">Sobre</a></li>
+                    <li><a href="produtos.html">Produtos</a></li>
+                    <li><a href="contato.html" class="ativo">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <h2>Entre em Contato</h2>
+            <p>Tem dúvidas sobre a N-Tek ou quer falar sobre a coleção? Use os canais abaixo ou envie sua mensagem.</p>
+            
+            <div class="contato-wrapper">
+
+                <div class="info-contato">
+                    <h3>Nossos Canais</h3>
+                    <p><strong>E-mail:</strong></p>
+                    <p>v.vianna.souza@gmail.com</p>
+                    <br>
+                    <p><strong>Telefone (Fictício):</strong></p>
+                    <p>(21) 98877-6655</p>
+                    <br>
+                    <p><strong>Localização (QG Fictício):</strong></p>
+                    <p>Av. N-Tek, 1000 - Rio de Janeiro, RJ</p>
+                </div>
+
+                <form id="contact-form" class="form-contato" novalidate>
+                    <h3>Envie sua Mensagem</h3>
+                    
+                    <div class="form-group">
+                        <label for="nome">Seu Nome:</label>
+                        <input type="text" id="nome" name="nome" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Seu E-mail:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="mensagem">Mensagem:</label>
+                        <textarea id="mensagem" name="mensagem" rows="6" required></textarea>
+                    </div>
+                    
+                    <div id="form-messages"></div>
+                    
+                    <button type="submit" class="btn-submit">Enviar Mensagem</button>
+                </form>
+
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 - Site de Fã. N-Tek Archives. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    
+    <script>
+        $(document).ready(function() {
+            // Monitora o envio (submit) do formulário
+            $('#contact-form').on('submit', function(event) {
+                // 1. Previne o recarregamento da página
+                event.preventDefault();
+
+                var form = $(this);
+                var nome = $('#nome').val();
+                var email = $('#email').val();
+                var mensagem = $('#mensagem').val();
+                var formMessages = $('#form-messages');
+
+                // 2. Validação Simples com jQuery
+                if (nome === '' || email === '' || mensagem === '') {
+                    // Se estiver vazio, mostra erro
+                    formMessages.html('<p class="msg-error">Por favor, preencha todos os campos obrigatórios.</p>');
+                    return; // Para a execução
+                }
+
+                // 3. Simulação de "Enviando..."
+                formMessages.html('<p class="msg-sending">Enviando sua mensagem...</p>');
+
+                // 4. Simulação de Sucesso (após 1.5 segundos)
+                setTimeout(function() {
+                    // Limpa o formulário
+                    form.trigger('reset'); 
+                    
+                    // Mostra mensagem de sucesso
+                    var sucessoHtml = `
+                        <p class="msg-success">
+                            <strong>Obrigado, ${nome}!</strong><br>
+                            Sua mensagem foi enviada com sucesso (Simulação).
+                        </p>
+                    `;
+                    formMessages.html(sucessoHtml);
+
+                    // Limpa a mensagem de sucesso após 5 segundos
+                    setTimeout(function() {
+                        formMessages.html('');
+                    }, 5000);
+
+                }, 1500); // 1.5 segundos
+            });
+        });
+    </script>
+
+</body>
+</html>

@@ -172,3 +172,158 @@ footer {
     padding: 0 15px 20px 15px; /* Espaçamento interno */
     margin: 0;
 }
+/* ---- Estilos da Página de Contato (Novo) ---- */
+
+.contato-wrapper {
+    display: flex;
+    flex-wrap: wrap; /* Permite quebrar para telas menores */
+    gap: 40px; /* Espaço entre as colunas */
+    margin-top: 30px;
+}
+
+.info-contato,
+.form-contato {
+    flex: 1; /* Faz as duas colunas crescerem igualmente */
+    min-width: 300px; /* Largura mínima antes de quebrar */
+}
+
+.info-contato h3 {
+    font-family: 'Orbitron', sans-serif;
+    color: var(--verde-escuro-max);
+    font-size: 1.5rem;
+    border-bottom: 2px solid var(--cinza-metal);
+    padding-bottom: 10px;
+}
+
+.info-contato p {
+    font-size: 1.1rem;
+    line-height: 1.4;
+}
+
+.info-contato p strong {
+    color: var(--texto-claro);
+    font-weight: 700;
+}
+
+/* Estilos do Formulário */
+.form-contato .form-group {
+    margin-bottom: 20px;
+}
+
+.form-contato label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 700;
+    color: #ccc;
+}
+
+.form-contato input[type="text"],
+.form-contato input[type="email"],
+.form-contato textarea {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--cinza-metal);
+    border: 2px solid #555;
+    border-radius: 5px;
+    color: var(--texto-claro);
+    font-family: 'Exo 2', sans-serif;
+    font-size: 1rem;
+    box-sizing: border-box; /* Garante que o padding não quebre o layout */
+}
+
+.form-contato input[type="text"]:focus,
+.form-contato input[type="email"]:focus,
+.form-contato textarea:focus {
+    outline: none;
+    border-color: var(--verde-escuro-max); /* Borda verde ao focar */
+}
+
+/* Botão de Envio */
+.btn-submit {
+    display: inline-block;
+    background-color: var(--verde-escuro-max); /* Cor verde! */
+    color: var(--texto-claro);
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-submit:hover {
+    background-color: #f0f0f0; /* Fica branco */
+    color: var(--verde-escuro-max); /* Texto fica verde */
+}
+
+/* Mensagens de feedback do jQuery */
+#form-messages p {
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    font-weight: 700;
+}
+
+.msg-error {
+    background-color: #6d1a1a;
+    color: #f7c5c5;
+    border: 1px solid #e64e4e;
+}
+
+.msg-sending {
+    background-color: #1f4f6e;
+    color: #c2e2f7;
+    border: 1px solid #4ea3e6;
+}
+
+.msg-success {
+    background-color: #2a632b;
+    color: #d1f7c2;
+    border: 1px solid #56e64e;
+}
+/* ---- Estilos do Slider da Home (Novo) ---- */
+
+#slider-container {
+    width: 100%;
+    max-width: 900px; /* Largura máxima do slider */
+    height: 400px; /* Altura fixa do slider */
+    margin: 20px auto 30px auto; /* Centraliza e dá espaço */
+    position: relative; /* Essencial para empilhar as imagens */
+    border: 4px solid var(--cinza-metal);
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #000; /* Fundo preto caso as imagens demorem */
+}
+
+.slider-image {
+    width: 100%;
+    height: 100%;
+    position: absolute; /* Coloca todas as imagens no mesmo lugar */
+    top: 0;
+    left: 0;
+    display: none; /* Esconde todas por padrão */
+}
+
+.slider-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Cobre a área sem distorcer */
+    object-position: center; /* Centraliza a imagem no corte */
+}
+
+/* ---- Estilo do Agradecimento (Novo) ---- */
+
+.agradecimento {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.agradecimento p {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--verde-escuro-max); /* Cor verde! */
+    font-family: 'Orbitron', sans-serif;
+    font-style: italic;
+}
