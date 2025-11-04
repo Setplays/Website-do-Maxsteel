@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Max Steel - Produtos</title> 
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;700&family=Orbitron:wght@700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1>
+                <img src="max-steel-seeklogo.png" alt="Logo Max Steel" class="logo"> MAX STEEL
+            </h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="sobre.html">Sobre</a></li>
+                    <li><a href="produtos.html" class="ativo">Produtos</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <h2>Galeria de Produtos</h2>
+            <p>Nossos arquivos da N-Tek. Veja as principais figuras de ação.</p>
+            
+            <div id="galeria-produtos" class="grid-produtos">
+                </div>
+
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 - Site de Fã. N-Tek Archives. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    
+    <script>
+        // Espera o documento estar pronto
+        $(document).ready(function() {
+            
+            // Pede ao jQuery para buscar nosso "banco de dados"
+            $.getJSON('produtos.json', function(data) {
+                // Encontra a galeria no HTML
+                var galeria = $('#galeria-produtos');
+
+                // Para cada produto encontrado no JSON...
+                $.each(data, function(index, produto) {
+                    
+                    // 1. Crie o HTML para o card do produto
+                    var cardHtml = `
+                        <div class="card-produto">
+                            <img src="${produto.imagemUrl}" alt="${produto.nome}">
+                            <h3>${produto.nome}</h3>
+                            <p>${produto.descricao}</p>
+                        </div>
+                    `;
+
+                    // 2. Adicione o card na galeria
+                    galeria.append(cardHtml);
+                });
+            })
+            .fail(function() {
+                // Se der erro (ex: não achar o produtos.json)
+                $('#galeria-produtos').html('<p>Erro ao carregar os produtos. Tente novamente mais tarde.</p>');
+            });
+        });
+    </script>
+
+</body>
+</html>
